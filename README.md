@@ -1,3 +1,4 @@
+
 # 🃏 Contador de Truco
 
 Este site foi criado como um projeto pessoal com o objetivo de facilitar as partidas de Truco entre amigos. A ideia é oferecer uma forma prática e divertida de marcar os pontos durante o jogo, com uma interface moderna e funcional.
@@ -22,4 +23,22 @@ Você pode usar o contador com dois times, reiniciar a contagem a qualquer momen
 ---
 
 ## 📂 Estrutura do Projeto
-/ ├── public/ │ └── index.html # HTML base ├── src/ │ ├── assets/ # Imagens, ícones etc. │ ├── components/ # Componentes React reutilizáveis │ │ └── Scoreboard.jsx # Componente principal do placar │ ├── styles/ # Estilos CSS │ │ └── App.css │ ├── App.jsx # Componente principal da aplicação │ ├── index.js # Entrada principal da aplicação ├── package.json # Dependências do projeto ├── .gitignore # Arquivos ignorados pelo Git └── README.md # Documentação do projeto
+
+```
+/
+├── public/
+│   └── index.html              # HTML base
+├── src/
+│   ├── assets/                 # Imagens, ícones etc.
+│   ├── components/             # Componentes React reutilizáveis
+│   │   └── Scoreboard.jsx      # Componente principal do placar
+│   ├── styles/                 # Estilos CSS
+│   │   └── App.css
+│   ├── App.jsx                 # Componente principal da aplicação
+│   ├── index.js                # Entrada principal da aplicação
+├── package.json                # Dependências do projeto
+├── .gitignore                  # Arquivos ignorados pelo Git
+└── README.md                   # Documentação do projeto
+```
+
+---
