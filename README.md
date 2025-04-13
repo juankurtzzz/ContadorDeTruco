@@ -22,17 +22,4 @@ Você pode usar o contador com dois times, reiniciar a contagem a qualquer momen
 ---
 
 ## 📂 Estrutura do Projeto
-/
-├── public/
-│   └── index.html           # HTML base
-├── src/
-│   ├── assets/              # Imagens, ícones etc.
-│   ├── components/          # Componentes React reutilizáveis
-│   │   └── Scoreboard.jsx   # Componente principal do placar
-│   ├── App.jsx              # Componente principal da aplicação
-│   ├── index.js             # Entrada principal da aplicação
-│   └── styles/              # Arquivos CSS
-│       └── App.css
-├── package.json             # Dependências do projeto
-├── .gitignore               # Arquivos ignorados pelo Git
-└── README.md                # Documentação do projeto
+/ ├── public/ │ └── index.html # HTML base ├── src/ │ ├── assets/ # Imagens, ícones etc. │ ├── components/ # Componentes React reutilizáveis │ │ └── Scoreboard.jsx # Componente principal do placar │ ├── styles/ # Estilos CSS │ │ └── App.css │ ├── App.jsx # Componente principal da aplicação │ ├── index.js # Entrada principal da aplicação ├── package.json # Dependências do projeto ├── .gitignore # Arquivos ignorados pelo Git └── README.md # Documentação do projeto
