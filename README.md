@@ -17,7 +17,7 @@ Você pode usar o contador com dois times, reiniciar a contagem a qualquer momen
 
 - React.js  
 - HTML  
-- CSS (estilizado com classes próprias)  
+- CSS 
 - JavaScript  
 
 ---
@@ -31,7 +31,7 @@ Você pode usar o contador com dois times, reiniciar a contagem a qualquer momen
 ├── src/
 │   ├── assets/                 # Imagens, ícones etc.
 │   ├── components/             # Componentes React reutilizáveis
-│   │   └── Scoreboard.jsx      # Componente principal do placar
+│   │   └── buttonTruco.jsx      # Componente principal do placar
 │   ├── styles/                 # Estilos CSS
 │   │   └── App.css
 │   ├── App.jsx                 # Componente principal da aplicação
