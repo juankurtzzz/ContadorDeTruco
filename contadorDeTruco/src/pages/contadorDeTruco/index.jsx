@@ -1,70 +1,97 @@
-import './styles.css';
-import React, { useState, useEffect } from 'react';
-import BotaoTruco from "../../components/buttonTruco/buttonTruco.jsx";
+import { useState } from "react";
+import "./styles.css";
 
-function ContadorTruco() {
-  const [timeA, setTimeA] = useState(0);
-  const [timeB, setTimeB] = useState(0);
-  const [vencedor, setVencedor] = useState('');
-  const [trucoValor, setTrucoValor] = useState(3);
+const LIMITE = 12;
 
-  useEffect(() => {
-    const definicoes = () => {
-      if (timeA < 0) setTimeA(0);
-      if (timeA > 12) setTimeA(12);
-      if (timeB < 0) setTimeB(0);
-      if (timeB > 12) setTimeB(12);
-    };
+export default function TrucoGame() {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+  const [truco, setTruco] = useState(1);
 
-    const vencer = () => {
-      if (timeA >= 12 && vencedor === '') setVencedor('Time A venceu!');
-      if (timeB >= 12 && vencedor === '') setVencedor('Time B venceu!');
-    };
+  const clamp = v => Math.max(0, Math.min(LIMITE, v));
 
-    definicoes();
-    vencer();
-  }, [timeA, timeB, vencedor]);
-
-  const resetar = () => {
-    setTimeA(0);
-    setTimeB(0);
-    setVencedor('');
-  };
+  const vencedor =
+    a >= LIMITE ? "Time A venceu 🎉" :
+    b >= LIMITE ? "Time B venceu 🎉" :
+    null;
 
   return (
-    <>
-      <div className="titulo">
-        <h1>Contador de Truco</h1>
-        <div className='BotaoTruco'></div>
+    <div className="truco">
+
+      <h1>🃏 Truco</h1>
+
+      <div className="mesa">
+
+        <Time
+          nome="Time A"
+          pontos={a}
+          truco={truco}
+          set={v => setA(clamp(v))}
+        />
+
+        <Centro truco={truco} setTruco={setTruco} />
+
+        <Time
+          nome="Time B"
+          pontos={b}
+          truco={truco}
+          set={v => setB(clamp(v))}
+        />
+
       </div>
-      <div className='BotaoTruco'>
-        <BotaoTruco onSelecionar={setTrucoValor} />
-        <h1>Valor atual do Truco: {trucoValor}</h1>
-      </div>
-      <div className='TimeA'>
-        <h1>Time A</h1>
-        <h2> Pontos: {timeA}</h2>
-        <button onClick={() => setTimeA(timeA + 1)}>+1</button>
-        <button onClick={() => setTimeA(timeA - 1)}>-1</button>
-        <button onClick={() => setTimeA(timeA + trucoValor)}>Adicionar valor truco</button>
-      </div>
-      <br />
-      <div className='TimeB'>
-        <h1>Time B</h1>
-        <h2> Pontos: {timeB}</h2>
-        <button onClick={() => setTimeB(timeB + 1)}>+1</button>
-        <button onClick={() => setTimeB(timeB - 1)}>-1</button>
-        <button onClick={() => setTimeB(timeB + trucoValor)}>Adicionar valor truco</button>
-      </div>
-      <br />
-      <div className='Vencedor'>
-        {vencedor && <h1>{vencedor}</h1>}
-      </div>
-      <div className='Resetar'>
-        <button onClick={resetar}>Resetar</button>
-      </div>
-    </>
+
+      {vencedor && <strong className="winner">{vencedor}</strong>}
+
+      <button className="reset" onClick={() => {
+        setA(0);
+        setB(0);
+        setTruco(1);
+      }}>
+        Nova Partida
+      </button>
+
+    </div>
   );
 }
 
-export default ContadorTruco;
+function Time({ nome, pontos, set, truco }) {
+  return (
+    <div className="time">
+
+      <h3>{nome}</h3>
+
+      <span>{pontos}</span>
+
+      <div className="acoes">
+        <button onClick={() => set(pontos + 1)}>+1</button>
+        <button onClick={() => set(pontos - 1)}>-1</button>
+        <button onClick={() => set(pontos + truco)}>
+          Truco +{truco}
+        </button>
+      </div>
+
+    </div>
+  );
+}
+
+function Centro({ truco, setTruco }) {
+  const valores = [1, 3, 6, 9, 12];
+
+  return (
+    <div className="centro">
+
+      <p>Valor da mão</p>
+
+      {valores.map(v => (
+        <button
+          key={v}
+          className={truco === v ? "ativo" : ""}
+          onClick={() => setTruco(v)}
+        >
+          {v}
+        </button>
+      ))}
+
+    </div>
+  );
+}

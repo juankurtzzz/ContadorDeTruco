@@ -4,108 +4,108 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 225, 255));
-  font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-}
-
-.titulo {
-  font-size: large;
-  margin-top: 20px;
-  margin-bottom: 178px;
-  text-align: center;
-  color: #000;
-}
-
-.Resetar {
-  margin-top: 100px;
-  margin-bottom: -20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.TimeA, .TimeB {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: center;
-}
-
-.TimeA {
-  left: 5%;
-}
-
-.TimeB {
-  right: 5%;
-}
-
-.TimeA input,
-.TimeB input {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: monospace;
-  text-align: center;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.TimeA input {
-  background-color: rgb(255, 0, 0);
+  background: #020617;
   color: white;
+  font-family: system-ui;
 }
 
-.TimeB input {
-  background-color: rgb(0, 225, 255);
+.truco {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.mesa {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Times */
+
+.time {
+  background: #020617;
+  padding: 25px;
+  border-radius: 20px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 15px 40px black;
+}
+
+.time span {
+  font-size: 4rem;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Centro */
+
+.centro {
+  background: #020617;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.centro button {
+  background: #1e293b;
+}
+
+.centro .ativo {
+  background: #22c55e;
   color: black;
 }
 
+/* Botões */
+
 button {
-  padding: 10px 16px;
-  font-size: 1rem;
   border: none;
+  padding: 10px;
   border-radius: 8px;
+  background: #334155;
+  color: white;
   cursor: pointer;
-  font-family: monospace;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.TimeA button {
-  background-color: #cc0000;
-  color: white;
+button:hover {
+  background: #475569;
 }
 
-.TimeA button:hover {
-  background-color: #990000;
-  transform: scale(1.03);
+/* Vencedor */
+
+.winner {
+  color: #22c55e;
+  font-size: 1.4rem;
 }
 
-.TimeB button {
-  background-color: #0066cc;
-  color: white;
+/* Reset */
+
+.reset {
+  background: #dc2626;
+  padding: 12px 40px;
 }
 
-.TimeB button:hover {
-  background-color: #004999;
-  transform: scale(1.03);
+.reset:hover {
+  background: #f87171;
 }
 
-.Resetar button {
-  background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 225, 255));
-  color: white;
-}
+/* Mobile */
 
-.Resetar button:hover {
-  opacity: 0.9;
+@media(max-width:700px){
+  .mesa{
+    flex-direction: column;
+  }
+
+  .time{
+    width:90vw;
+  }
 }
